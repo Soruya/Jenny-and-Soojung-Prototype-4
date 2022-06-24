@@ -15,6 +15,7 @@ public class EnemyController : MonoBehaviour
     {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         startingPosition = transform.position;
+        Debug.Log(startingPosition);
     }
 
     // Update is called once per frame
@@ -32,6 +33,7 @@ public class EnemyController : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             this.transform.position = startingPosition;
+            Debug.Log("Reset to: " + transform.position);
         }
     }
 }
