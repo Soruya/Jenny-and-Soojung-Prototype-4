@@ -22,7 +22,7 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         // If player is within certain distance of enemy, enemy should start chasing player
-        if (Vector2.Distance(transform.position, target.position) < chaseDistance)
+        if (Vector2.Distance(transform.position, target.position) < chaseDistance && Vector2.Distance(transform.position, target.position) > 0.5)
         {
             transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         }
