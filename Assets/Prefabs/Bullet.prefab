@@ -139,3 +139,4 @@ MonoBehaviour:
   speed: 10
   rb: {fileID: 1410246131318516658}
   player: {fileID: 0}
+  maxTravelDistance: 20

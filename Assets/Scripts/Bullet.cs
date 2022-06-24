@@ -8,15 +8,32 @@ public class Bullet : MonoBehaviour
     public Rigidbody2D rb;
     public PlayerScript player;
 
-    // Start is called before the first frame update
+    public float maxTravelDistance;
+    Vector3 startPos;
+
+    
     void Start()
     {
+        startPos = gameObject.transform.position;
+        player = FindObjectOfType<PlayerScript>();
         rb.velocity = player.direction * speed;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Vector3.Distance(startPos, gameObject.transform.position) > maxTravelDistance)
+        {
+            Destroy(this);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        //destroys and deal damage if hit enemy
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+
+        }
     }
 }
