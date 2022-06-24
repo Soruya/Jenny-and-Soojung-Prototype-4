@@ -8,11 +8,13 @@ public class EnemyController : MonoBehaviour
     public float chaseDistance;
 
     private Transform target;
+    private Vector2 startingPosition;
 
     // Start is called before the first frame update
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        startingPosition = transform.position;
     }
 
     // Update is called once per frame
@@ -22,6 +24,14 @@ public class EnemyController : MonoBehaviour
         if (Vector2.Distance(transform.position, target.position) < chaseDistance)
         {
             transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            this.transform.position = startingPosition;
         }
     }
 }
