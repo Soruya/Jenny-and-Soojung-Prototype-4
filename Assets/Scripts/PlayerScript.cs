@@ -68,9 +68,9 @@ public class PlayerScript : MonoBehaviour
 
     void HealthChange(int num)
     {
-        if ((health += num) < fullHealth)
+        if ((health + num) < fullHealth)
         {
-            health = +num;
+            health = health + num;
         }
         else
         {
