@@ -33,7 +33,7 @@ public class Bullet : MonoBehaviour
         //destroys and deal damage if hit enemy
         if (collision.gameObject.CompareTag("Enemy"))
         {
-
+            Destroy(collision.gameObject);
         }
     }
 }
