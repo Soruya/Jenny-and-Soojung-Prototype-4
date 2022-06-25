@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 535453508717454723}
   - component: {fileID: 535453508717454725}
   - component: {fileID: 535453508717454720}
+  - component: {fileID: 8055269305752927094}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -125,3 +126,19 @@ MonoBehaviour:
   rb: {fileID: 535453508717454725}
   bulletPrefab: {fileID: 1410246131318516669, guid: f0281d6388702c547b772eaf20be1685, type: 3}
   direction: {x: 0, y: 0}
+--- !u!58 &8055269305752927094
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 535453508717454721}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5

@@ -33,7 +33,14 @@ public class EnemyController : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             this.transform.position = startingPosition;
-            Debug.Log("Reset to: " + transform.position);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Bullet")
+        {
+            Destroy(this.gameObject);
         }
     }
 }
