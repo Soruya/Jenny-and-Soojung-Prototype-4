@@ -4,15 +4,31 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public AudioSource playerHit;
+    public AudioSource playerLose;
+    public AudioSource enemyHit;
+    public AudioSource winCheer;
+    public AudioSource winPop;
+
+    public void playPlayerHit()
     {
-        
+        playerHit.Play();
+    }
+    public void playPlayerLose()
+    {
+        playerLose.Play();
+    }
+    public void playEnemyHit()
+    {
+        enemyHit.Play();
+    }
+    public void playWinCheer()
+    {
+        winCheer.Play();
+    }
+    public void playWinPop()
+    {
+        winPop.Play();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
