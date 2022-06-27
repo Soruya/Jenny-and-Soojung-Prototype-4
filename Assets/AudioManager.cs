@@ -10,6 +10,10 @@ public class AudioManager : MonoBehaviour
     public AudioSource winCheer;
     public AudioSource winPop;
 
+    void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
     public void playPlayerHit()
     {
         playerHit.Play();

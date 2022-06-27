@@ -21,11 +21,14 @@ public class PlayerScript : MonoBehaviour
 
     public bool win;
 
+    public AudioManager audioPlayer;
+
     void Start()
     {
         health = fullHealth;
         startPos = transform.position;
         win = false;
+        audioPlayer = FindObjectOfType<AudioManager>();
     }
 
     void Update()
@@ -60,6 +63,7 @@ public class PlayerScript : MonoBehaviour
         //if player hits enemy
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            audioPlayer.playPlayerHit();
             HealthChange(-20);
         }
         if (collision.gameObject.CompareTag("Health"))
@@ -68,6 +72,8 @@ public class PlayerScript : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Goal"))
         {
+            audioPlayer.playWinCheer();
+            audioPlayer.playWinPop();
             win = true;
             playerSpeed = 0f;
         }
@@ -86,6 +92,7 @@ public class PlayerScript : MonoBehaviour
         }
         else
         {
+            audioPlayer.playPlayerLose();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             /*transform.position = startPos;
             health = fullHealth;*/

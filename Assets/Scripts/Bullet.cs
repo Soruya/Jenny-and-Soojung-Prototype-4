@@ -33,6 +33,7 @@ public class Bullet : MonoBehaviour
         //destroys and deal damage if hit enemy
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            FindObjectOfType<AudioManager>().playEnemyHit();
             Destroy(collision.gameObject);
             Destroy(this.gameObject);
         }

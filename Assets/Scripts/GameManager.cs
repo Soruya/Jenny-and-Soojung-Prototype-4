@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     PlayerScript playerScript;
+    public GameObject winText;
     public GameObject confetti;
 
     // Start is called before the first frame update
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviour
         if (playerScript.win)
         {
             confetti.SetActive(true);
+            winText.SetActive(true);
         }
         Restart();
     }
