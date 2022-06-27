@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -18,10 +19,13 @@ public class PlayerScript : MonoBehaviour
 
     float playerScale;
 
+    public bool win;
+
     void Start()
     {
         health = fullHealth;
         startPos = transform.position;
+        win = false;
     }
 
     void Update()
@@ -62,6 +66,11 @@ public class PlayerScript : MonoBehaviour
         {
             HealthChange(50);
         }
+        if (collision.gameObject.CompareTag("Goal"))
+        {
+            win = true;
+            playerSpeed = 0f;
+        }
     }
 
     void Shoot()
@@ -77,8 +86,9 @@ public class PlayerScript : MonoBehaviour
         }
         else
         {
-            transform.position = startPos;
-            health = fullHealth;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            /*transform.position = startPos;
+            health = fullHealth;*/
         }
     }
 }
