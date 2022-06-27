@@ -22,9 +22,9 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(startPos, gameObject.transform.position) > maxTravelDistance)
+        if (Vector3.Distance(startPos, gameObject.transform.position) >= maxTravelDistance)
         {
-            Destroy(this);
+            Destroy(this.gameObject);
         }
     }
 
@@ -34,6 +34,7 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             Destroy(collision.gameObject);
+            Destroy(this.gameObject);
         }
         //bullet destroyed upon hitting wall
         if (collision.gameObject.CompareTag("Wall"))
