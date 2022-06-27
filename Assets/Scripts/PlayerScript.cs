@@ -9,6 +9,8 @@ public class PlayerScript : MonoBehaviour
     public float playerSpeed = 10f;
     public Rigidbody2D rb;
 
+    public Vector2 startPos;
+
     Vector2 movement;
 
     public GameObject bulletPrefab;
@@ -19,6 +21,7 @@ public class PlayerScript : MonoBehaviour
     void Start()
     {
         health = fullHealth;
+        startPos = transform.position;
     }
 
     void Update()
@@ -68,12 +71,13 @@ public class PlayerScript : MonoBehaviour
 
     void HealthChange(int num)
     {
-        if ((health + num) < fullHealth)
+        if ((health + num) < fullHealth && (health + num) > 0)
         {
             health = health + num;
         }
         else
         {
+            transform.position = startPos;
             health = fullHealth;
         }
     }
