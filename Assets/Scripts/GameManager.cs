@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
             winText.SetActive(true);
         }
         Restart();
+        Quit();
     }
 
     void Restart()
@@ -34,6 +35,14 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             playerScript.win = false;
+        }
+    }
+
+    void Quit()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
         }
     }
 }
